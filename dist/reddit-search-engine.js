@@ -187,6 +187,7 @@ searchForm.addEventListener("submit", e => {
       let image = post.preview ? post.preview.images[0].source.url : // : "https://media.giphy.com/media/7Cl6Q2A13HhkI/giphy.gif";
       "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
       output += `
+    
         <div class="card" >
         <img class="card-img-top" src=${image} alt="Card image cap">
         <div class="card-body">
@@ -194,8 +195,8 @@ searchForm.addEventListener("submit", e => {
             <p class="card-text">${truncateText(post.selftext, 100)} </p>
             <a href=${post.url} target="_blank" class="btn btn-primary red">Read More</a>
         <hr>
-        <span class="badge badge-secondary dark">Subreddit: ${post.subreddit}</span>
-        <span class="badge badge-dark light">Score: ${post.score}</span>
+        <span class="badge badge-dark">Subreddit: ${post.subreddit}</span>
+        <span class="badge light">Score: ${post.score}</span>
         </div>
         </div>
         `;
@@ -240,7 +241,7 @@ function truncateText(text, limit) {
 require("./src/scss/main.scss");
 
 require("./src/js/app");
-},{"./src/scss/main.scss":18,"./src/js/app":19}],21:[function(require,module,exports) {
+},{"./src/scss/main.scss":18,"./src/js/app":19}],26:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -361,5 +362,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[21,2])
+},{}]},{},[26,2])
 //# sourceMappingURL=/dist/reddit-search-engine.map
