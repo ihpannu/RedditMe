@@ -146,7 +146,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   search: function (searchTerm, searchLimit, sortBy) {
-    fetch(`http://www.reddit.com/search.json?q=${searchTerm} `).then(res => res.json()).then(data => console.log(data));
+    fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `).then(res => res.json()).then(data => console.log(data.children));
   }
 };
 },{}],15:[function(require,module,exports) {
@@ -208,7 +208,7 @@ function showMessage(message, className) {
 require("./main.scss");
 
 require("./app");
-},{"./main.scss":8,"./app":15}],26:[function(require,module,exports) {
+},{"./main.scss":8,"./app":15}],27:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -329,5 +329,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[26,4])
+},{}]},{},[27,4])
 //# sourceMappingURL=/dist/reddit-search-engine.map
