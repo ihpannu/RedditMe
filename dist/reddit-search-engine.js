@@ -182,13 +182,20 @@ searchForm.addEventListener("submit", e => {
     let output = '<div class="card-columns">';
     // loop through post
     results.forEach(post => {
+      //   console.log(results);
+      //   this gets the image if available if not then shows the default image
+      let image = post.preview ? post.preview.images[0].source.url : // : "https://media.giphy.com/media/7Cl6Q2A13HhkI/giphy.gif";
+      "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
       output += `
         <div class="card" >
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src=${image} alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">${post.title}</h5>
+            <p class="card-text">${truncateText(post.selftext, 100)} </p>
+            <a href=${post.url} target="_blank" class="btn btn-primary red">Read More</a>
+        <hr>
+        <span class="badge badge-secondary dark">Subreddit: ${post.subreddit}</span>
+        <span class="badge badge-dark light">Score: ${post.score}</span>
         </div>
         </div>
         `;
@@ -218,6 +225,14 @@ function showMessage(message, className) {
 
   // Time out alert
   setTimeout(() => document.querySelector(".alert").remove(), 3000);
+}
+
+// Truncate text
+
+function truncateText(text, limit) {
+  const shortened = text.indexOf("", limit);
+  if (shortened === -1) return text;
+  return text.substring(0, shortened);
 }
 },{"./apiReddit":5}],2:[function(require,module,exports) {
 "use strict";
