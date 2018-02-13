@@ -1,3 +1,5 @@
+import "./searchReddit";
+
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 
@@ -29,7 +31,6 @@ function showMessage(message, className) {
   const searchContainer = document.getElementById("search-container");
   // Get search
   const search = document.getElementById("search");
-
   //Insert message
   searchContainer.insertBefore(div, search);
 }

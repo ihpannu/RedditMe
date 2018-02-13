@@ -138,7 +138,13 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":9}],15:[function(require,module,exports) {
+},{"_css_loader":9}],20:[function(require,module,exports) {
+
+},{}],15:[function(require,module,exports) {
+"use strict";
+
+require("./searchReddit");
+
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 
@@ -170,18 +176,16 @@ function showMessage(message, className) {
   const searchContainer = document.getElementById("search-container");
   // Get search
   const search = document.getElementById("search");
-
   //Insert message
   searchContainer.insertBefore(div, search);
 }
-
-},{}],4:[function(require,module,exports) {
+},{"./searchReddit":20}],4:[function(require,module,exports) {
 "use strict";
 
 require("./main.scss");
 
 require("./app");
-},{"./main.scss":8,"./app":15}],18:[function(require,module,exports) {
+},{"./main.scss":8,"./app":15}],21:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -302,5 +306,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[18,4])
+},{}]},{},[21,4])
 //# sourceMappingURL=/dist/reddit-search-engine.map
