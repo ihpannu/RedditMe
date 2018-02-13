@@ -69,9 +69,119 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({4:[function(require,module,exports) {
+})({10:[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-},{}],6:[function(require,module,exports) {
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error;
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+
+},{}],9:[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+
+},{"./bundle-url":10}],8:[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":9}],15:[function(require,module,exports) {
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+
+// Form event listener
+searchForm.addEventListener("submit", e => {
+  //  Get search term
+  const searchTerm = searchInput.value;
+  //Get sort
+  const sortBy = document.querySelector('input[name="sortby"]:checked').value;
+
+  // Get limit
+  const searchLimit = document.getElementById("limit").value;
+
+  if (searchTerm === "") {
+    showMessage("Please add a search term", "alert-danger");
+  }
+  e.preventDefault();
+});
+
+// Function shows message
+function showMessage(message, className) {
+  //create div
+  const div = document.createElement("div");
+  //   add classes
+  div.className = `alert ${className}`;
+  //   add text
+  div.appendChild(document.createTextNode(message));
+  //Get the parent container
+  const searchContainer = document.getElementById("search-container");
+  // Get search
+  const search = document.getElementById("search");
+
+  //Insert message
+  searchContainer.insertBefore(div, search);
+}
+
+},{}],4:[function(require,module,exports) {
+"use strict";
+
+require("./main.scss");
+
+require("./app");
+},{"./main.scss":8,"./app":15}],18:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -192,5 +302,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[6,4])
+},{}]},{},[18,4])
 //# sourceMappingURL=/dist/reddit-search-engine.map
