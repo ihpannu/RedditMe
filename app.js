@@ -33,4 +33,7 @@ function showMessage(message, className) {
   const search = document.getElementById("search");
   //Insert message
   searchContainer.insertBefore(div, search);
+
+  // Time out alert
+  setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
