@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({10:[function(require,module,exports) {
+})({7:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -100,7 +100,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],9:[function(require,module,exports) {
+},{}],5:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,13 +132,13 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":10}],8:[function(require,module,exports) {
+},{"./bundle-url":7}],3:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":9}],22:[function(require,module,exports) {
+},{"_css_loader":5}],6:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -146,10 +146,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   search: function (searchTerm, searchLimit, sortBy) {
-    fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `).then(res => res.json()).then(data => console.log(data.children));
+    fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `).then(res => res.json()).then(data => console.log(data.data.children));
   }
 };
-},{}],15:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 var _apiReddit = require("./apiReddit");
@@ -202,13 +202,13 @@ function showMessage(message, className) {
   // Time out alert
   setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
-},{"./apiReddit":22}],4:[function(require,module,exports) {
+},{"./apiReddit":6}],2:[function(require,module,exports) {
 "use strict";
 
 require("./main.scss");
 
 require("./app");
-},{"./main.scss":8,"./app":15}],27:[function(require,module,exports) {
+},{"./main.scss":3,"./app":4}],8:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -228,7 +228,7 @@ module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '63149' + '/');
+  var ws = new WebSocket('ws://' + hostname + ':' + '49383' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -329,5 +329,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[27,4])
+},{}]},{},[8,2])
 //# sourceMappingURL=/dist/reddit-search-engine.map

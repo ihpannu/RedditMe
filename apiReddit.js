@@ -4,6 +4,6 @@ export default {
       `http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `
     )
       .then(res => res.json())
-      .then(data => console.log(data.children));
+      .then(data => console.log(data.data.children));
   }
 };
