@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({23:[function(require,module,exports) {
+})({8:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -100,7 +100,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],22:[function(require,module,exports) {
+},{}],5:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,13 +132,13 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":23}],18:[function(require,module,exports) {
+},{"./bundle-url":8}],3:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./../img/background.jpg":[["9f373d8e36ce257fda73db5cbcb6033f.jpg",24],24],"_css_loader":22}],20:[function(require,module,exports) {
+},{"./../img/background.jpg":[["9f373d8e36ce257fda73db5cbcb6033f.jpg",6],6],"_css_loader":5}],7:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -149,7 +149,7 @@ exports.default = {
     return fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `).then(res => res.json()).then(data => data.data.children.map(data => data.data)).catch(err => console.log(err));
   }
 };
-},{}],19:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 var _apiReddit = require("./apiReddit");
@@ -235,13 +235,13 @@ function truncateText(text, limit) {
   if (shortened === -1) return text;
   return text.substring(0, shortened);
 }
-},{"./apiReddit":20}],2:[function(require,module,exports) {
+},{"./apiReddit":7}],2:[function(require,module,exports) {
 "use strict";
 
 require("./src/scss/main.scss");
 
 require("./src/js/app");
-},{"./src/scss/main.scss":18,"./src/js/app":19}],26:[function(require,module,exports) {
+},{"./src/scss/main.scss":3,"./src/js/app":4}],9:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -261,7 +261,7 @@ module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '49425' + '/');
+  var ws = new WebSocket('ws://' + hostname + ':' + '55712' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -362,5 +362,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[26,2])
+},{}]},{},[9,2])
 //# sourceMappingURL=/dist/reddit-search-engine.map
