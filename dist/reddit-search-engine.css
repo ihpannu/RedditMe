@@ -4,8 +4,9 @@
     text-transform: uppercase; }
 
 .dark {
-  color: #fff;
-  background: #000; }
+  color: #000;
+  background: #fff;
+  border: none; }
 
 .light {
   color: #fff;
@@ -21,3 +22,9 @@
     background: #000000;
     border: none;
     box-shadow: 0 0 15px rgba(177, 177, 177, 0.308); }
+
+.image {
+  border-radius: 4px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url("9f373d8e36ce257fda73db5cbcb6033f.jpg");
+  background-size: cover;
+  color: white; }

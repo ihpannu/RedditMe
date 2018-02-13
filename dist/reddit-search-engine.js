@@ -138,7 +138,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":6}],5:[function(require,module,exports) {
+},{"./src/img/background.jpg":[["9f373d8e36ce257fda73db5cbcb6033f.jpg",14],14],"_css_loader":6}],5:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function truncateText(text, limit) {
 require("./main.scss");
 
 require("./app");
-},{"./main.scss":3,"./app":4}],11:[function(require,module,exports) {
+},{"./main.scss":3,"./app":4}],17:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -361,5 +361,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[11,2])
+},{}]},{},[17,2])
 //# sourceMappingURL=/dist/reddit-search-engine.map

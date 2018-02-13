@@ -5,8 +5,11 @@
   }
 }
 .dark {
-  color: #fff;
-  background: #000;
+  color: #000;
+  background: #fff;
+  // color: #fff;
+  // background: #000;
+  border: none;
 }
 .light {
   color: #fff;
@@ -24,4 +27,12 @@
     border: none;
     box-shadow: 0 0 15px rgba(177, 177, 177, 0.308);
   }
+}
+
+.image {
+  border-radius: 4px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+    url("src/img/background.jpg");
+  background-size: cover;
+  color: white;
 }
