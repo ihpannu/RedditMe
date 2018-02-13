@@ -138,12 +138,23 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":9}],20:[function(require,module,exports) {
+},{"_css_loader":9}],22:[function(require,module,exports) {
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  search: function () {}
+};
 },{}],15:[function(require,module,exports) {
 "use strict";
 
-require("./searchReddit");
+var _apiReddit = require("./apiReddit");
+
+var _apiReddit2 = _interopRequireDefault(_apiReddit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
@@ -161,6 +172,13 @@ searchForm.addEventListener("submit", e => {
   if (searchTerm === "") {
     showMessage("Please add a search term", "alert-danger");
   }
+
+  searchInput.value = "";
+
+  //   search reddit
+  _apiReddit2.default.search(searchTerm, searchLimit, sortBy);
+
+  //prevent default
   e.preventDefault();
 });
 
@@ -182,13 +200,13 @@ function showMessage(message, className) {
   // Time out alert
   setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
-},{"./searchReddit":20}],4:[function(require,module,exports) {
+},{"./apiReddit":22}],4:[function(require,module,exports) {
 "use strict";
 
 require("./main.scss");
 
 require("./app");
-},{"./main.scss":8,"./app":15}],21:[function(require,module,exports) {
+},{"./main.scss":8,"./app":15}],24:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -309,5 +327,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[21,4])
+},{}]},{},[24,4])
 //# sourceMappingURL=/dist/reddit-search-engine.map
