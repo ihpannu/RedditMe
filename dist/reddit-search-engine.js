@@ -69,76 +69,13 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({7:[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error;
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-
-},{}],6:[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-
-},{"./bundle-url":7}],3:[function(require,module,exports) {
+})({18:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./src/img/background.jpg":[["9f373d8e36ce257fda73db5cbcb6033f.jpg",14],14],"_css_loader":6}],5:[function(require,module,exports) {
+},{}],20:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -149,7 +86,7 @@ exports.default = {
     return fetch(`http://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit} `).then(res => res.json()).then(data => data.data.children.map(data => data.data)).catch(err => console.log(err));
   }
 };
-},{}],4:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 "use strict";
 
 var _apiReddit = require("./apiReddit");
@@ -234,13 +171,13 @@ function truncateText(text, limit) {
   if (shortened === -1) return text;
   return text.substring(0, shortened);
 }
-},{"./apiReddit":5}],2:[function(require,module,exports) {
+},{"./apiReddit":20}],2:[function(require,module,exports) {
 "use strict";
 
-require("./main.scss");
+require("./src/scss/main.scss");
 
-require("./app");
-},{"./main.scss":3,"./app":4}],17:[function(require,module,exports) {
+require("./src/js/app");
+},{"./src/scss/main.scss":18,"./src/js/app":19}],21:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -361,5 +298,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[17,2])
+},{}]},{},[21,2])
 //# sourceMappingURL=/dist/reddit-search-engine.map
