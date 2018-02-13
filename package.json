@@ -1,9 +1,12 @@
 {
   "name": "reddit-search-engine",
   "version": "1.0.0",
-  "description": "A web app build in Pure ES6, fetch and Bootstrap to search articles in reddit.com",
+  "description":
+    "A web app build in Pure ES6, fetch and Bootstrap to search articles in reddit.com",
   "main": "index.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Harman Pannu",
