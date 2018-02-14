@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/iharmanpannu/Reddit-Search-Engine/issues"
   },
-  "homepage": "https://github.com/iharmanpannu/Reddit-Search-Engine#readme"
+  "homepage": "https://github.com/iharmanpannu/Reddit-Search-Engine#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1"
+  }
 }
