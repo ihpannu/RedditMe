@@ -1,17 +1,19 @@
 {
-  "name": "reddit-search-engine",
+  "name": "reddit-me",
   "version": "1.0.0",
-  "description":
-    "A web app build in Pure ES6, fetch and Bootstrap to search articles in reddit.com",
-  "main": "index.js",
+  "description": "Reddit.com search engine",
+  "main": "app.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iharmanpannu/Reddit-Search-Engine.git"
   },
   "author": "Harman Pannu",
   "license": "ISC",
-  "devDependencies": {
-    "node-sass": "^4.7.2"
-  }
+  "bugs": {
+    "url": "https://github.com/iharmanpannu/Reddit-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/iharmanpannu/Reddit-Search-Engine#readme"
 }

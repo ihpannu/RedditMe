@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";Object.defineProperty(exports,\"__esModule\",{value:!0}),exports.default={search:function(e,t,o){return fetch(`http://www.reddit.com/search.json?q=${e}&sort=${o}&limit=${t} `).then(e=>e.json()).then(e=>e.data.children.map(e=>e.data)).catch(e=>console.log(e))}};"},"hash":"d0b1d71a833dd42bef4e2e5c8f7cbab2","cacheData":{"env":{}}}
