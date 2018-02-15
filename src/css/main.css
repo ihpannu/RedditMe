@@ -30,8 +30,7 @@
 
 .image {
   border-radius: 4px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-    url("../img/background.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
   background-size: cover;
   color: white;
 }
